@@ -16,4 +16,7 @@ jobs:
 
       - run: npm install
 
-      - run: npm test
+      - name: Run test (requires DEMO_API_KEY)
+        env: 
+          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
+        run: npm test

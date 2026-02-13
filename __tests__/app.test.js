@@ -11,17 +11,20 @@ describe("Hello World service", () => {
 
   test("GET /config-check fails when DEMO_API_KEY is missing", async () => {
     const app = createApp();
+    const originalKey = process.env.DEMO_API_KEY;
     delete process.env.DEMO_API_KEY;
 
     const res = await request(app).get("/config-check");
     expect(res.statusCode).toBe(500);
     expect(res.body.message).toMatch(/Missing DEMO_API_KEY/);
+
+    if (originalKey !== undefined) process.env.DEMO_API_KEY = originalKey;
   });
 
-  test("GET /config-check succeeds when DEMO_API_KEY is set", async () => {
+  test("GET /config-check succeeds when DEMO_API_KEY is set (externally)", async () => {
     const app = createApp();
-    process.env.DEMO_API_KEY = "not-a-real-secret";
 
+        // This must come from the environment (local export or CI secrets).
     const res = await request(app).get("/config-check");
     expect(res.statusCode).toBe(200);
     expect(res.body.message).toMatch(/is set/);
