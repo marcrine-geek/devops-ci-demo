@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="1" errors="0" time="1.879">
+  <testsuite name="Hello World service" errors="0" failures="1" skipped="0" timestamp="2026-03-02T07:43:44" time="1.76" tests="3">
+    <testcase classname="Hello World service GET /health returns ok" name="Hello World service GET /health returns ok" time="0.067">
+    </testcase>
+    <testcase classname="Hello World service GET /config-check fails when DEMO_API_KEY is missing" name="Hello World service GET /config-check fails when DEMO_API_KEY is missing" time="0.011">
+    </testcase>
+    <testcase classname="Hello World service GET /config-check succeeds when DEMO_API_KEY is set (externally)" name="Hello World service GET /config-check succeeds when DEMO_API_KEY is set (externally)" time="0.018">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 500
+    at Object.toBe (/home/marcrine/Documents/Exercise2B/devops-ci-demo/__tests__/app.test.js:29:28)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
