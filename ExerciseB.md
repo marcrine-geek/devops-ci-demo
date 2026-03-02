@@ -10,7 +10,7 @@
 
 2. **Security Scan (CodeQL)**
    - A new workflow file (`.github/workflows/codeql.yml`) has been added.
-   - This job runs on pushes and pull requests against `main`/`master` and is scheduled weekly.
+   - This job runs on pushes and pull requests against `main`/`master` and is scheduled daily.
    - It checks out the repo, initializes the CodeQL action for JavaScript, performs an autobuild, and runs the security analysis.
    - Any security alerts will appear in the repository’s Security tab under "Code scanning alerts."
 
